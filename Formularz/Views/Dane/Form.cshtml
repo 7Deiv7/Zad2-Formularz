@@ -1,0 +1,44 @@
+﻿@model Formularz.Models.Dane
+
+@using (Html.BeginForm("Form", "Dane", FormMethod.Post))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <p> Twoje Imię:
+        @Html.TextBoxFor(a => a.Imie, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Imie, "", new { @class = "text-danger" })
+    </p>
+    <p> Twoje Nazwisko:
+        @Html.TextBoxFor(a => a.Nazwisko, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Nazwisko, "", new { @class = "text-danger" })
+    </p>
+    <p> Twój Email:
+        @Html.TextBoxFor(a => a.Email, new { @class = "form-control", type = "email" })
+        @Html.ValidationMessageFor(a => a.Email, "", new { @class = "text-danger" })
+    </p>
+    <p> Hasło:
+        @Html.PasswordFor(a => a.Haslo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Haslo, "", new { @class = "text-danger" })
+    </p>
+    <p> Potwierdzenie Hasła:
+        @Html.PasswordFor(a => a.PotwierdzenieHasla, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.PotwierdzenieHasla, "", new { @class = "text-danger" })
+    </p>
+    <p> Numer Telefonu:
+        @Html.TextBoxFor(a => a.NumerTelefonu, new { @class = "form-control", type = "tel" })
+        @Html.ValidationMessageFor(a => a.NumerTelefonu, "", new { @class = "text-danger" })
+    </p>
+    <p> Wiek:
+        @Html.TextBoxFor(a => a.Wiek, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(a => a.Wiek, "", new { @class = "text-danger" })
+    </p>
+    <p> Miasto:
+        @Html.DropDownListFor(a => a.Kategoria, Html.GetEnumSelectList<Dane.Kategorie>(), "Wybierz miasto", new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Kategoria, "", new { @class = "text-danger" })
+    </p>
+    <p>
+        <button type="submit" class="btn btn-primary">Zarejestruj się</button>
+    </p>
+}
+
+
+
